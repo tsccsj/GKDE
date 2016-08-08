@@ -196,7 +196,7 @@ decompose.o: decompose.c
 	$(GCC) -o $@ -c $<
 
 kde.o: kde.cu
-	${NVCC} $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+	$(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
 MultiGPUKDE: multiGPUKDE.o io.o decompose.o kde.o
 	$(MPICXX) $(MPI_LDFLAGS) -o ../$@ $+ $(LIBRARIES) $(GDALLIB)
